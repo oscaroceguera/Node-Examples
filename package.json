@@ -1,0 +1,9 @@
+{
+  "name": "naves",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "01.0.1",
+    "express": "4.0.0",
+    "mongoose": "^4.0.0"
+  }
+}
