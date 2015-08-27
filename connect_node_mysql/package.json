@@ -1,0 +1,7 @@
+{
+  "name": "node-mysql",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mysql": "^2.8.0"
+  }
+}
