@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt');
 
 /**
  * Iniciamos el servidor de express
@@ -39,18 +40,33 @@ router.get('/', function(req,res){
  */
 router.route('/register')
 	.post(function(req, res){
-		var user = new User();
-		user.name = req.body.name;
-		user.password = req.body.password;
-		user.email = req.body.email;
-
-		user.save(function(err){
+	
+		/**
+		 * Encriptamos el password del usuario 
+		 * para despues guardarlo
+		 */
+		bcrypt.genSalt(10, function(err, salt){
 			if(err){
-				res.sen({error : true, message : 'Ocurrio un error'});
-			}else{
-				res.send({error : false, message : 'Usuario registrado con exito' });
+				return console.log(err);
 			}
-		});
+			bcrypt.hash(req.body.password, salt, function(err, hash){
+				if(err) return console.log(err);
+
+				var user = new User();
+				user.name = req.body.name;
+				user.password = hash;
+				user.email = req.body.email;
+
+				user.save(function(err){
+					if(err){
+						res.sen({error : true, message : 'Ocurrio un error'});
+					}else{
+						res.send({error : false, message : 'Usuario registrado con exito' });
+					}
+				});
+			})
+		})
+		
 	});
 
 /**
