@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var NaveSchema = new Schema({
 	nombre : String,
-	caegorias : String,
+	categoria : String,
 	motores : Number,
 	peso : Number
 });
