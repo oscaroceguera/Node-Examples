@@ -40,33 +40,18 @@ router.get('/', function(req,res){
  */
 router.route('/register')
 	.post(function(req, res){
-	
-		/**
-		 * Encriptamos el password del usuario 
-		 * para despues guardarlo
-		 */
-		bcrypt.genSalt(10, function(err, salt){
+		var user = new User();
+		user.name = req.body.name;
+		user.password = req.body.password;
+		user.email = req.body.email;
+
+		user.save(function(err){
 			if(err){
-				return console.log(err);
+				res.sen({error : true, message : 'Ocurrio un error'});
+			}else{
+				res.send({error : false, message : 'Usuario registrado con exito' });
 			}
-			bcrypt.hash(req.body.password, salt, function(err, hash){
-				if(err) return console.log(err);
-
-				var user = new User();
-				user.name = req.body.name;
-				user.password = hash;
-				user.email = req.body.email;
-
-				user.save(function(err){
-					if(err){
-						res.sen({error : true, message : 'Ocurrio un error'});
-					}else{
-						res.send({error : false, message : 'Usuario registrado con exito' });
-					}
-				});
-			})
-		})
-		
+		});
 	});
 
 /**
