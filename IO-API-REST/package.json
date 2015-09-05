@@ -1,0 +1,15 @@
+{
+  "name": "io-api-rest",
+  "dependencies": {
+    "body": "^5.1.0",
+    "course": "0.0.1",
+    "mongoose": "^4.1.5",
+    "winston": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.6.7"
+  },
+  "scripts" : {
+    "server" : "babel-node index.js"
+  }
+}
