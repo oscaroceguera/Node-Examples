@@ -1,6 +1,0 @@
-{
-	"mongoDB" : {
-		"name" : "API",
-		"host" : "localhost"
-	}
-}
