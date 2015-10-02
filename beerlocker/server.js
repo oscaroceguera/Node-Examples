@@ -10,8 +10,14 @@ var userController = require('./controllers/user');
 // Use environment defined port or 3000
 var port = process.env.PORT || 8080;
 
+// Buscamos la conexion adecuada al hambiente, para mongoDB
+var uristring =
+	process.env.MONGOLAB_URI ||
+	process.env.MONGO_URL ||
+	'mongodb://localhost/beerlocker'; 
+
 // Connect to the beerlocker MongoDB
-mongoose.connect('mongodb://localhost/beerlocker');
+//mongoose.connect('mongodb://localhost/beerlocker');
 
 // Create our Express application
 var app = express();
