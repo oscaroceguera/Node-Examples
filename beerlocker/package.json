@@ -1,0 +1,23 @@
+{
+  "name": "beerlocker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "mongoose": "4.1.9",
+    "passport": "0.3.0",
+    "passport-http": "0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.7.1"
+  }
+}
