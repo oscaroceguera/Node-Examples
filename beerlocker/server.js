@@ -14,10 +14,7 @@ var port = process.env.PORT || 8080;
 var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGO_URL ||
-	'mongodb://localhost/beerlocker'; 
-
-// Connect to the beerlocker MongoDB
-//mongoose.connect('mongodb://localhost/beerlocker');
+	'mongodb://localhost/beerlocker';
 
 // Create our Express application
 var app = express();
@@ -52,7 +49,15 @@ router.route('/users')
 // Register all our routes with /api
 app.use('/api', router);
 
-// Start the server
-app.listen(port, function(){
-	console.log('Insert beer port ' + port);
-})
+mongoose.connect(uristring, function(err){
+	if (err){
+		console.log("ERROR connecting to: " + uristring + '.' +err);
+	} else {
+		console.log("Succeeded connected to: " + uristring);
+	}
+
+	app.listen(port, function(){
+		console.log('App listening on port: ' + port);
+	});
+
+});
