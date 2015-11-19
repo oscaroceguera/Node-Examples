@@ -12,7 +12,7 @@ mongoose.connect(conf.database);
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-// This is our route middleware
+// This is our route middlewaren
 app.use('/api', movies);
 
 module.exports = app;
