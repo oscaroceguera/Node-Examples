@@ -1,9 +1,12 @@
-var configDB = require('../knexfile');
-var Knex = require('knex')(configDB);
-var Bookshelf = require('bookshelf')(Knex);
+var Bookshelf = require('../commons/bookshelf');
+var Post = require('./post');
 
 var Tag = Bookshelf.Model.extend({
-  tableName: 'tags'
+  tableName: 'tags',
+
+  posts : function(){
+	  return this.belongsToMany(Post)
+  }
 });
 
 module.exports = Tag;

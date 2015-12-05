@@ -1,6 +1,4 @@
-var configDB = require('../knexfile');
-var knex = require('knex')(configDB);
-var Bookshelf = require('bookshelf')(knex);
+var Bookshelf = require('../commons/bookshelf');
 var Schema = require('../schema/schema');
 var sequence = require('when/sequence');
 var _ = require('lodash');

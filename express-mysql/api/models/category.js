@@ -1,6 +1,5 @@
-var configDB = require('../knexfile');
-var Knex = require('knex')(configDB);
-var Bookshelf = require('bookshelf')(Knex);
+var Bookshelf = require('../commons/bookshelf');
+Bookshelf.plugin('registry');
 
 var Post = require('./post');
 
@@ -10,10 +9,10 @@ var Category = Bookshelf.Model.extend({
 
   hasTimestamps: true,
 
-  posts: function () {
-	  return this.hasMany(Post, 'category_id');
+  posts : function () {
+	  return this.hasMany('Post');
    }
 
 });
 
-module.exports = Category;
+module.exports = Bookshelf.model('Category', Category);

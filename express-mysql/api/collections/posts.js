@@ -1,6 +1,4 @@
-var configDB = require('../knexfile');
-var Knex = require('knex')(configDB);
-var Bookshelf = require('bookshelf')(Knex);
+var Bookshelf = require('../commons/bookshelf');
 
 var Post = require('../models/post');
 

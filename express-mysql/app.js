@@ -1,8 +1,7 @@
-var port = 3000;
 var express = require('express');
 var app = express();
+var port = 3000;
 
-var _ = require('lodash');
 var bodyParser = require('body-parser');
 
 var allowCrossDomain = function(req, res, next) {
