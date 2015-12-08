@@ -18,7 +18,7 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended : true }));
 // parse application/json
 app.use(bodyParser.json());
 // parse application/vnd.api+json as json
