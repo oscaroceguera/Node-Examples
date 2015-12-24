@@ -1,0 +1,32 @@
+{
+  "name": "tv-maze",
+  "version": "1.0.0",
+  "description": "A TVMaze wrapper client",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "start": "nodemon app.js --exec babel-node",
+    "coverage": "istanbul cover tape -- test/*-test.js",
+    "test": "babel-node test/*-test.js | tap-spec"
+  },
+  "keywords": [
+    "tvmaze",
+    "tv",
+    "shows"
+  ],
+  "author": "Oscar Oceguera",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-istanbul": "^0.5.9",
+    "babel-tape-runner": "^1.3.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.1",
+    "nock": "^3.4.0",
+    "nodemon": "^1.8.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "client-request": "^1.0.1"
+  }
+}
